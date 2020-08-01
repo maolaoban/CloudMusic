@@ -7,7 +7,7 @@ var lsLove = JSON.parse(localStorage.getItem('loveSongs') || '[]');
 const store = new Vuex.Store({
     state:{
         songs:lsSongs,
-        loveSongs:lsLove
+        loveSongs:lsLove,
     },
     mutations:{
         addSongs(state,songsInfo){

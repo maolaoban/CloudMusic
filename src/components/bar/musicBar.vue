@@ -1,6 +1,6 @@
 <template>
     <div class="musicBar">
-        <audio id="audio" :src="url" muted></audio>
+        <audio id="audio" :src="url">当前浏览器不支持播放</audio>
         <div class="left">
             <img :src="songsInfo.picUrl" alt="">
             <span>
@@ -26,7 +26,7 @@ export default {
            ispause:false,
            isplay:true,
            isPlaying:false,
-           isLove:true
+           isLove:true,
         }
     },
     created(){
@@ -51,6 +51,7 @@ export default {
                 var data = response.data;
                 this.url = data.data[0].url;
             })
+            
         },
         musicStop(){
             var audio = document.querySelector('#audio');
@@ -90,13 +91,14 @@ export default {
     watch:{
         '$store.state.songs'(){
             this.getMusic();
-            if(this.isPlaying){
-                this.musicStop();
-            }else{
-                this.ispause = false;
-                this.isplay = true;
-                this.isPlaying = false;
-            }
+            this.musicPlay();
+            // if(this.isPlaying){
+            //     this.musicPlay();
+            // }else{
+            //     this.ispause = false;
+            //     this.isplay = true;
+            //     this.isPlaying = false;
+            // }
         }
     }
 }

@@ -12,8 +12,8 @@
                 <i class="fa fa-play-circle fa-lg" aria-hidden="true"></i>
                 播放全部
             </p>
-            <ul class="mui-table-view" v-for="(item,index) in playList" :key="item.id">
-				 <li class="mui-table-view-cell" @click="addSongs(item.id, item.name, item.ar[0].name, item.al.picUrl)">
+            <ul class="mui-table-view">
+				 <li class="mui-table-view-cell" v-for="(item,index) in playList" :key="item.id" @click="addSongs(item.id, item.name, item.ar[0].name, item.al.picUrl)">
                      <div class="num">{{index+1}}</div>
                      <div class="title">
                          <p class="name">{{item.name}}</p>
